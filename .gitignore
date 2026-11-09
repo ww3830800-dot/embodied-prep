@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.conda/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# 训练产物（后面 W3 起会大量出现）
+*.pt
+*.pth
+*.ckpt
+*.onnx
+wandb/
+runs/
+outputs/
+lightning_logs/
+
+# 数据：原始数据不进仓库
+data/raw/
+data/processed/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本地机密
+.env.local
+*.local
