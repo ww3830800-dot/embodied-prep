@@ -41,13 +41,36 @@ pip install -r requirements.txt
 python -m pytest -q
 ```
 
+## 训练（W3：线性回归）
+
+```bash
+.conda\python.exe -m src.main --epochs 300 --lr 0.1
+```
+
+输出最后几轮损失、train/test MSE，并把损失曲线存到 `figs/loss_curve.png`。
+
+本仓库的参考结果：
+
+```
+final train MSE: 0.011168
+final test  MSE: 0.009464
+first/last loss: 0.6870 -> 0.0112
+```
+
+损失从 0.687 降到 0.0112，跨 1.8 个数量级；test 与 train 同一量级，说明没有过拟合。
+
 ## 目录
 
 ```
 embodied-prep/
-  src/                 # 训练代码（W2 起模块化）
-  tests/               # pytest
+  src/
+    data.py            # 合成数据与切分
+    model.py           # 模型定义（W3：线性回归）
+    train.py           # 训练循环 + 评估
+    main.py            # 入口：训练、存曲线
+  tests/               # pytest（数据/模型/训练各一组）
   notes/               # 阅读与推导笔记
+  figs/                # 交付图（损失曲线）
   requirements.txt
   .gitignore
 ```
@@ -55,7 +78,9 @@ embodied-prep/
 ## 进度
 
 - [x] W1-1 conda 环境（Python 3.10）
-- [ ] W1-2 仓库公开并 push
+- [x] W1-2 仓库公开并 push
 - [x] W1-3 .gitignore
-- [x] W1-4 requirements.txt 可重建
-- [ ] W1-5 Pro Git 1–3 章 + 笔记
+- [x] W1-4 requirements.txt 可重建（在干净 venv 里重装验证过）
+- [x] W1-5 Pro Git 1–3 章 + 笔记
+- [x] W2 模块化（data/model/train/main）+ pytest 跑通（8 passed）
+- [x] W3 线性回归收敛 + 训练曲线
